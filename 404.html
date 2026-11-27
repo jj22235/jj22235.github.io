@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 · 页面未找到</title>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("site-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: rgba(17, 24, 39, 0.09);
+      --accent: #2563eb;
+    }
+    [data-theme="dark"] {
+      --bg: #0b0d12;
+      --card: #12161f;
+      --text: #f3f4f6;
+      --muted: #a1a8b8;
+      --border: rgba(255, 255, 255, 0.09);
+      --accent: #60a5fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .card {
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 32px;
+    }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+    }
+    h1 {
+      margin: 10px 0 0;
+      font-size: 30px;
+      letter-spacing: -0.025em;
+    }
+    p {
+      margin: 12px 0 26px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 9999px;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+    a:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="code">ERROR 404</span>
+    <h1>页面走丢了</h1>
+    <p>你访问的地址不存在或已被移动。可以返回首页继续浏览我的简介与项目。</p>
+    <a href="/">返回首页</a>
+  </main>
+</body>
+</html>

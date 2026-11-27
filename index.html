@@ -1,4 +1,284 @@
-<!doctype html>
-<meta charset="utf-8">
-<title>我的个人网站</title>
-<h1>欢迎来到我的个人网站</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>毛嘉俊 (jj) · Agent 全栈开发</title>
+  <meta name="description" content="毛嘉俊（jj）的个人主页：2026届杭州电子科技大学计算机科学与技术本科毕业生，现居杭州，专注 Agent 全栈开发。" />
+  <meta property="og:title" content="毛嘉俊 (jj) · Agent 全栈开发" />
+  <meta property="og:description" content="2026届杭州电子科技大学计算机科学与技术本科毕业生，现居杭州，专注 Agent 全栈开发。" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111827'/%3E%3Cpath d='M20 44L32 18L44 44' stroke='%23ffffff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='32' cy='40' r='3.5' fill='%2360a5fa'/%3E%3C/svg%3E"
+  />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("site-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主要内容</a>
+
+  <!-- 顶部背景氛围光 -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" id="brand-name" aria-label="返回首页">jj.</a>
+
+      <nav class="site-nav" aria-label="主导航">
+        <a class="nav-link" href="#about">关于</a>
+        <a class="nav-link" href="#skills">技能</a>
+        <a class="nav-link" href="#projects">项目</a>
+        <a class="nav-link" href="#timeline">经历</a>
+        <a class="nav-link" href="#contact">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="icon-btn"
+          id="theme-toggle"
+          aria-label="切换明暗主题"
+          title="切换明暗主题"
+        >
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="icon-btn mobile-menu-btn"
+          id="mobile-menu-toggle"
+          aria-label="打开导航菜单"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg class="icon-menu" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 移动端折叠菜单 -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="移动端导航" hidden>
+      <div class="container mobile-nav-inner">
+        <a class="mobile-nav-link" href="#about">关于</a>
+        <a class="mobile-nav-link" href="#skills">技能</a>
+        <a class="mobile-nav-link" href="#projects">项目</a>
+        <a class="mobile-nav-link" href="#timeline">经历</a>
+        <a class="mobile-nav-link" href="#contact">联系</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero 首屏区 -->
+    <section class="hero section" id="top">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="status-pill" id="hero-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="hero-badge-text">26届杭电计算机本科 · 专注 Agent 全栈开发</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span id="hero-prefix">你好，我是</span>
+            <span class="hero-name" id="hero-name">毛嘉俊</span>，<br />
+            <span class="hero-accent" id="hero-accent">Agent 全栈开发者</span>
+          </h1>
+
+          <p class="hero-tagline" id="hero-tagline">
+            也可以叫我 jj。2026 届杭州电子科技大学计算机科学与技术本科毕业生，现居杭州，专注于 AI Agent 应用架构、工具协同与全栈工程落地。
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">
+              浏览精选项目
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a class="btn btn-secondary" href="#contact">联系我</a>
+            <a class="btn btn-ghost" id="hero-resume" href="#" target="_blank" rel="noopener noreferrer" hidden>查看简历</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="social-row" id="hero-socials" aria-label="社交链接"></div>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="个人名片">
+          <div class="profile-card">
+            <div class="profile-card-top">
+              <div class="avatar-box" id="profile-avatar" aria-hidden="true">JJ</div>
+              <div class="profile-meta">
+                <p class="profile-card-name" id="card-name">毛嘉俊</p>
+                <p class="profile-card-location" id="card-location">中国 · 杭州</p>
+              </div>
+            </div>
+            <div class="profile-divider"></div>
+            <dl class="profile-facts" id="profile-facts"></dl>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">ABOUT</span>
+          <h2 class="section-title" id="about-title">关于我</h2>
+          <p class="section-subtitle" id="about-subtitle">用简洁的设计与扎实的工程解决真实问题。</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal" id="about-paragraphs"></div>
+          <div class="stats-grid reveal" id="about-highlights"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能栈 -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">SKILLS</span>
+          <h2 class="section-title">技能与工具</h2>
+          <p class="section-subtitle">围绕现代 Web 构建与工程效率沉淀的技术栈。</p>
+        </div>
+
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- 精选项目 -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header section-header-row reveal">
+          <div>
+            <span class="section-eyebrow">PROJECTS</span>
+            <h2 class="section-title">精选项目</h2>
+            <p class="section-subtitle">近期完成或持续维护的代表性作品，点击卡片可查看详细介绍。</p>
+          </div>
+          <div class="filter-bar" id="project-filters" role="tablist" aria-label="按分类筛选项目"></div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- 经历 / 里程碑 -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">EXPERIENCE</span>
+          <h2 class="section-title">经历与足迹</h2>
+          <p class="section-subtitle">持续积累与成长的关键阶段。</p>
+        </div>
+
+        <ol class="timeline-list" id="timeline-list"></ol>
+      </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="section-eyebrow">CONTACT</span>
+          <h2 class="contact-title" id="contact-title">保持联系</h2>
+          <p class="contact-desc" id="contact-description">
+            如果你对我的项目感兴趣、有合作想法，或者只是想聊聊技术与产品，欢迎随时给我发邮件。
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" id="contact-mailto" href="mailto:jiajunmao92@gmail.com">
+              发送邮件
+            </a>
+            <button type="button" class="btn btn-secondary" id="copy-email-btn">
+              <span id="copy-email-label">复制邮箱</span>
+              <code class="email-inline" id="contact-email-text">jiajunmao92@gmail.com</code>
+            </button>
+          </div>
+
+          <div class="contact-socials" id="contact-socials" aria-label="更多联系方式"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        © <span id="footer-year">2026</span> <span id="footer-name">毛嘉俊</span> ·
+        <span id="footer-note">杭州 · Hosted on GitHub Pages</span>
+      </p>
+      <a class="back-to-top" href="#top" aria-label="回到页面顶部">
+        回到顶部 ↑
+      </a>
+    </div>
+  </footer>
+
+  <!-- 项目详情弹窗 -->
+  <div class="modal-backdrop" id="project-modal" hidden aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <span class="modal-meta" id="modal-meta"></span>
+          <h3 class="modal-title" id="modal-title"></h3>
+        </div>
+        <button type="button" class="icon-btn" id="modal-close" aria-label="关闭弹窗">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-section" id="modal-highlights-wrap">
+          <h4 class="modal-section-title">核心亮点</h4>
+          <ul class="modal-highlights" id="modal-highlights"></ul>
+        </div>
+        <div class="modal-tags" id="modal-tags"></div>
+      </div>
+      <div class="modal-footer" id="modal-actions"></div>
+    </div>
+  </div>
+
+  <!-- 轻提示 Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./assets/js/site-data.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
